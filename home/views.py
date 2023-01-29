@@ -1,8 +1,10 @@
 from django.shortcuts import render
-
+from .models import *
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+    views = {}
+    views['services'] = Service.objects.all()
+    return render(request, 'index.html',views)
 def about(request):
     return render(request, 'about.html')
 def contact(request):
@@ -13,3 +15,8 @@ def price(request):
     return render(request, 'price.html')
 def services(request):
     return render(request, 'services.html')
+
+
+
+
+
